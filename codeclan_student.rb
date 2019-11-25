@@ -7,7 +7,11 @@ end
 
 def student_name
 return @student_name
-end 
+end
+
+def student_cohort
+  return @cohort
+end
 
 
 
