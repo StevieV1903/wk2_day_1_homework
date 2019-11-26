@@ -7,6 +7,7 @@ class SportsTeam
     @team_name = team_name
     @players = players
     @coach = coach
+    @points = 0
 
   end
 
@@ -26,21 +27,31 @@ class SportsTeam
   #   @coach = new_name
   # end
 
-def add_new_player(new_player)
-  @players << new_player
-end
-
-def find_player_by_name(name)
-  for player_name in @players
-    if player_name == name
-      player_found = player_name
-    end
+  def add_new_player(new_player)
+    @players << new_player
   end
-  return player_found
+
+  def find_player_by_name(name)
+    for player_name in @players
+      if player_name == name
+        player_found = player_name
+      end
+    end
+    return player_found
+  end
+
+def update_points(result)
+if result == "win"
+  @points += 3
+  return
+elsif result == "loss"
+  return
+end
 end
 
-
-
+def get_points
+  return @points
+end
 
 
 end

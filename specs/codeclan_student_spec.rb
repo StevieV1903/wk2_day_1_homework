@@ -11,7 +11,7 @@ class TestSportsTeam < MiniTest::Test
     @team_name = "Edinburgh"
     @players = ["Jen", "Steve"]
     @coach = "Alex"
-    @points = 0
+
   end
 
   def test_get_team_name
@@ -52,13 +52,18 @@ class TestSportsTeam < MiniTest::Test
     assert_equal("Steve", team.find_player_by_name("Steve"))
   end
 
-  # def test_add_points_if_won
-  #     team = SportsTeam.new(@team_name, @players, @coach, @points)
-  #     assert_equal(1, team.won_or_lost("win"))
-  #   end
-
-    
+  def test_add_points_if_won
+      team = SportsTeam.new(@team_name, @players, @coach)
+      team.update_points("win")
+   assert_equal(3, team.get_points)
   end
+
+  def test_add_points_if_loss
+      team = SportsTeam.new(@team_name, @players, @coach)
+      team.update_points("loss")
+   assert_equal(0, team.get_points) 
+  end
+end
 
 
 
